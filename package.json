@@ -4,10 +4,10 @@
   "description": "medium api using graphql",
   "main": "boot.ts",
   "scripts": {
-    "test": "mocha --require ts-node/register --watch-extensions ts,tsx '**/*.{ts,tsx}'",
+    "test": "mocha -r ts-node/register test/**/*'",
     "test:watch": "mocha --require ts-node/register --watch-extensions ts,tsx '**/*.{ts,tsx}'",
     "start": "node ./dist/boot.js",
-    "dev": "node ./boot.ts --exec ts-node ./boot.ts",
+    "dev": "ts-node ./boot.ts",
     "dev:watch": "nodemon --watch ./boot.ts --exec ts-node ./boot.ts"
   },
   "repository": {
@@ -40,7 +40,8 @@
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.1",
+    "typings": "^2.1.1"
   },
   "dependencies": {
     "@types/body-parser": "^1.16.8",

@@ -1,0 +1,54 @@
+{
+  "name": "medium-graphql",
+  "version": "0.0.1",
+  "description": "medium api using graphql",
+  "main": "boot.ts",
+  "scripts": {
+    "test": "mocha --require ts-node/register --watch-extensions ts,tsx '**/*.{ts,tsx}'",
+    "test:watch": "mocha --require ts-node/register --watch-extensions ts,tsx '**/*.{ts,tsx}'",
+    "start": "node ./dist/boot.js",
+    "dev": "node ./boot.ts --exec ts-node ./boot.ts",
+    "dev:watch": "nodemon --watch ./boot.ts --exec ts-node ./boot.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsparanoguy/medium-graphql.git"
+  },
+  "keywords": [
+    "medium",
+    "graphql",
+    "node"
+  ],
+  "author": "André Gomes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jsparanoguy/medium-graphql/issues"
+  },
+  "homepage": "https://github.com/jsparanoguy/medium-graphql#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.3",
+    "@types/morgan": "^1.7.35",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "cors": "^2.8.4",
+    "mocha": "^4.0.1",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1",
+    "sinon": "^4.1.2",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "tslint-config-airbnb": "^5.4.2",
+    "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "@types/body-parser": "^1.16.8",
+    "@types/express": "^4.0.39",
+    "@types/graphql": "^0.11.6",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "graphql": "^0.11.7",
+    "graphql-tools": "^2.8.0"
+  }
+}

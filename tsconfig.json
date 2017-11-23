@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+      "module": "commonjs", 
+      "target": "esnext",
+      "outDir": "./dist",
+      "noImplicitAny": true, 
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "emitDecoratorMetadata": true, 
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": "**/*",
+      "paths": {
+        "*": [
+          "node_modules/*"
+        ]
+      },
+      "lib": [
+        "es2017",
+        "dom",
+        "esnext.asynciterable"
+    ]
+    },
+    "include": [
+      "./boot.ts",
+      "server/*",
+      "routes/*",
+      "graphql/*"
+    ],
+    "exclude": [
+      "test/"
+    ]
+}

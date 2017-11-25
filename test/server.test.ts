@@ -3,22 +3,14 @@ import { should, expect } from 'chai'
 import { Request, Response, Router } from 'express'
 const request = require('supertest')
 import { serv as server } from '../boot'
+const mock = require('../__mock_data__/mock')
 
-
-xdescribe('/top', () => {
-  it('should return top', () => {
-    return request(server).get('/top').then((res: any) => {
-      res.status.should.equal(200)
-      res.body.should.equal('top')
-    })
-  })
-})
-
+// mock data correspond to the react tag search
 xdescribe('/tag', () => {
   it('should return hello', () => {
-    return request(server).get('/tag').then((res: any) => {
+    return request(server).get('/tag?limit=10&tag=react').then((res: any) => {
       res.status.should.equal(200)
-      res.body.should.equal('hello')
+      res.body.should.eql(mock)
     })
   })
 })

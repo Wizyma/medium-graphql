@@ -3,8 +3,8 @@ import * as path from 'path'
 import * as bodyParser from 'body-parser'
 import * as logger from 'morgan'
 import * as cors from 'cors'
+import { Main } from '../routes/main'
 // import * as cookieParser from 'cookie-parser' use later
-
 
 interface ServerOptions {
   readonly port?: number 
@@ -61,6 +61,11 @@ export class Server {
 
   public router () {
     const router = express.Router()
+    
+    // main routes
+    const main = new Main()
+    const mainRoutes = Main.connect(router, main)
+    this.app.use(mainRoutes)
   }
 
   /**
@@ -78,6 +83,6 @@ export class Server {
     next: express.NextFunction,
   ) {
     res.statusCode = 404
-    res.sendFile(path.resolve(__dirname, 'template/notfound.html'))
+    res.sendFile(path.resolve(__dirname, '../template/notfound.html'))
   }
 }

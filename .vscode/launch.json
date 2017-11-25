@@ -5,7 +5,7 @@
         "type": "node",
         "request": "launch",
         "name": "Launch Program",
-        "args": ["${workspaceFolder}/server/boot.ts"],
+        "args": ["${workspaceFolder}/boot.ts"],
         "runtimeArgs": ["--no-lazy", "-r", "ts-node/register"],
         "sourceMaps": true,
         "cwd": "${workspaceRoot}",

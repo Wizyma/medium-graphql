@@ -1,21 +1,24 @@
-const chai = require('chai')
-const server = require('../server')
-const should = chai.should()
-const describe = require('mocha').describe()
-const xit = require('mocha').xit()
-const before = require('mocha').beofre()
-const after = require('mocha').after()
-import { Server } from '../server/server'
+import 'mocha'
+import { should, expect } from 'chai'
+import { Request, Response, Router } from 'express'
+const request = require('supertest')
+import { serv as server } from '../boot'
 
-describe('Start', () => {
-  xit('should start the server on the given port', () => {
-    let serv: any
-    before(() => {
-      serv = new Server({ port: 1339 })
+
+xdescribe('/top', () => {
+  it('should return top', () => {
+    return request(server).get('/top').then((res: any) => {
+      res.status.should.equal(200)
+      res.body.should.equal('top')
     })
+  })
+})
 
-    after(() => {
-      serv.close()
+xdescribe('/tag', () => {
+  it('should return hello', () => {
+    return request(server).get('/tag').then((res: any) => {
+      res.status.should.equal(200)
+      res.body.should.equal('hello')
     })
   })
 })

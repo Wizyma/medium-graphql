@@ -8,6 +8,13 @@ export interface Route {
 
 
 export abstract class BaseController {
+  public url: string
+  
+  constructor() {
+    this.url = 'https://medium.com'
+  }
+
+
   static routes: Route[] = []
 
   public req: Request

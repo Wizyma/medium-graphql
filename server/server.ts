@@ -4,6 +4,10 @@ import * as bodyParser from 'body-parser'
 import * as logger from 'morgan'
 import * as cors from 'cors'
 import { Main } from '../routes/main'
+import * as R from 'ramda'
+const graphqlHTTP = require('express-graphql')
+import { getPosts } from '../medium/api'
+const schema  = require('../graphql/schema')
 // import * as cookieParser from 'cookie-parser' use later
 
 interface ServerOptions {
@@ -40,11 +44,14 @@ export class Server {
    */
   private config () {
     this.app.use(logger('dev'))
-
     this.app.use('*', cors())
     this.app.use(bodyParser.json())
     this.app.use(bodyParser.urlencoded())
     this.router()
+    this.app.use('/graphql', graphqlHTTP(async (request: any, response: any, graphQLParams: any) => ({ schema,
+      rootValue: await getPosts(graphQLParams),
+      graphiql: true,
+    })))
     this.app.use(this.notFoundMiddleware)
   }
 

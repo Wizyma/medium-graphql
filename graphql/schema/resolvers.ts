@@ -1,13 +1,18 @@
-// const posts = require('../../__mock_data__/mock')
 import { TimestampType } from '../utils/timestampDef'
-interface param {
-  limit: number,
-  tag: string
+
+interface params {
+  tag: string,
+  limit?: number
 }
+
 module.exports = {
   Query: {
-    allPosts: (posts: any) => posts,
+    allPosts: (posts: any, { tag, limit }: params) => posts.filter((post: any, i: number) => {
+      if ((i + 1) <= limit) {
+        return post
+      } 
+    }),
   },
-  
+
   Timestamp: TimestampType,
 }

@@ -42,7 +42,9 @@ export class Server {
    */
   private config () {
     this.app.use(logger('dev'))
-    this.app.use('*', cors())
+    if (process.env.ENV_VARIABLE !== 'production') {
+      this.app.use('*', cors())
+    }
     this.app.use(bodyParser.json())
     this.app.use(bodyParser.urlencoded())
     // this.router() no routes for now
@@ -50,7 +52,8 @@ export class Server {
       async (request: express.Request, response: express.Response, graphQLParams: object) => ({ 
         schema,
         rootValue: await getPosts(graphQLParams),
-        graphiql: true,
+        graphiql: process.env.ENV_VARIABLE === 'production' ? false : true,
+        pretty: true,
       })))
     this.app.use(this.notFoundMiddleware)
   }

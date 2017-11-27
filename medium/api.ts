@@ -1,13 +1,9 @@
 import 'isomorphic-fetch'
 import { toJSON, formatData } from '../medium/parser'
 
-interface request {
-  tag: string,
-  limit: number
-}
-
 export const getPosts = (params: any) => {
-  return fetch(`https://medium.com/tag/${params.tag}?limit=${params.limit ? params.limit : 10}&format=json`)
+  const { tag, limit } = params.variables
+  return fetch(`https://medium.com/tag/${tag}?limit=20&format=json`)
     .then((response) => {
       return response.text()
     })

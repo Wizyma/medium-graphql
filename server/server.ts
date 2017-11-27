@@ -3,8 +3,6 @@ import * as path from 'path'
 import * as bodyParser from 'body-parser'
 import * as logger from 'morgan'
 import * as cors from 'cors'
-import { Main } from '../routes/main'
-import * as R from 'ramda'
 const graphqlHTTP = require('express-graphql')
 import { getPosts } from '../medium/api'
 const schema  = require('../graphql/schema')
@@ -47,11 +45,13 @@ export class Server {
     this.app.use('*', cors())
     this.app.use(bodyParser.json())
     this.app.use(bodyParser.urlencoded())
-    this.router()
-    this.app.use('/graphql', graphqlHTTP(async (request: any, response: any, graphQLParams: any) => ({ schema,
-      rootValue: await getPosts(graphQLParams),
-      graphiql: true,
-    })))
+    // this.router() no routes for now
+    this.app.use('/graphql', graphqlHTTP(
+      async (request: express.Request, response: express.Response, graphQLParams: object) => ({ 
+        schema,
+        rootValue: await getPosts(graphQLParams),
+        graphiql: true,
+      })))
     this.app.use(this.notFoundMiddleware)
   }
 
@@ -68,11 +68,6 @@ export class Server {
 
   public router () {
     const router = express.Router()
-    
-    // main routes
-    const main = new Main()
-    const mainRoutes = Main.connect(router, main)
-    this.app.use(mainRoutes)
   }
 
   /**

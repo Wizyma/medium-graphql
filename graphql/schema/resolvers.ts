@@ -7,11 +7,7 @@ interface param {
 module.exports = {
   Query: {
     allPosts: (posts: any) => posts,
-
-    test: () => (obj: any, { tag, limit }: param, context: any) => {
-      console.log({ tag, limit })
-      return context.Raw.load({ tag, limit }).then((data: any) => data)
-    },
   },
+  
   Timestamp: TimestampType,
 }

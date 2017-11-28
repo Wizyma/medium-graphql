@@ -31,7 +31,6 @@ const typeDefs = `
 
     type Query {
         allPosts(tag: String!, limit: Int = 10): [Post!]
-        test(tag: String!, limit: Int = 10): [Post!]
     }
 `
 

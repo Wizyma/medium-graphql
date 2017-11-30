@@ -22,10 +22,7 @@
     ]
     },
     "include": [
-      "./boot.ts",
-      "server/*",
-      "routes/*",
-      "graphql/*"
+      "**/*"
     ],
     "exclude": [
       "test/"

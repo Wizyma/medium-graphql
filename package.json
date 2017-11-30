@@ -8,7 +8,8 @@
     "test:watch": "mocha --require ts-node/register --watch-extensions ts,tsx '**/*.{ts,tsx}'",
     "start": "node ./dist/boot.js",
     "dev": "ts-node ./boot.ts",
-    "dev:watch": "nodemon --watch ./boot.ts --exec ts-node ./boot.ts"
+    "dev:watch": "nodemon --watch ./boot.ts --exec ts-node ./boot.ts",
+    "build": "tsc --p ./tsconfig.json"
   },
   "repository": {
     "type": "git",

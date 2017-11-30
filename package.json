@@ -1,6 +1,6 @@
 {
   "name": "medium-graphql",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "medium api using graphql",
   "main": "boot.ts",
   "scripts": {

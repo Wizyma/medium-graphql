@@ -10,7 +10,7 @@ const def = {
 }
 
 export const getPosts = (params: graphqlParams) => {
-  const { tag, limit } = params.variables || def.variables
+  const { tag, limit } = params.variables ? params.variables : def.variables
   return fetch(`https://medium.com/tag/${tag ? tag : 'react'}?limit=20&format=json`)
     .then((response) => {
       return response.text()

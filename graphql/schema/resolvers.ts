@@ -1,13 +1,9 @@
 import { TimestampType } from '../utils/timestampDef'
-
-interface params {
-  tag: string,
-  limit?: number
-}
+import { resolverParams } from '../../typeDefs'
 
 module.exports = {
   Query: {
-    allPosts: (posts: any, { tag, limit }: params) => posts.filter((post: any, i: number) => {
+    allPosts: (posts: any, { tag, limit }: resolverParams) => posts.filter((post: any, i: number) => {
       if ((i + 1) <= limit) {
         return post
       } 

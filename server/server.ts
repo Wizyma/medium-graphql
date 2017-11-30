@@ -4,13 +4,10 @@ import * as bodyParser from 'body-parser'
 import * as logger from 'morgan'
 import * as cors from 'cors'
 const graphqlHTTP = require('express-graphql')
-import { getPosts } from '../medium/api'
 const schema  = require('../graphql/schema')
+import { getPosts } from '../medium/api'
+import { graphqlParams, ServerOptions } from '../typeDefs'
 // import * as cookieParser from 'cookie-parser' use later
-
-interface ServerOptions {
-  readonly port?: number 
-}
 
 /**
  *  Create our web server
@@ -49,7 +46,7 @@ export class Server {
     this.app.use(bodyParser.urlencoded())
     // this.router() no routes for now
     this.app.use('/graphql', graphqlHTTP(
-      async (request: express.Request, response: express.Response, graphQLParams: object) => ({ 
+      async (request: express.Request, response: express.Response, graphQLParams: graphqlParams) => ({ 
         schema,
         rootValue: await getPosts(graphQLParams),
         graphiql: process.env.ENV_VARIABLE === 'production' ? false : true,

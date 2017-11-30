@@ -1,3 +1,3 @@
-import graphqlHTTP from './server/server'
+import mediumServer from './server/server'
 
-export default graphqlHTTP
+export default mediumServer

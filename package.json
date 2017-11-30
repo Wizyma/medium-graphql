@@ -2,7 +2,7 @@
   "name": "medium-graphql",
   "version": "1.0.8",
   "description": "medium api using graphql",
-  "main": "boot.ts",
+  "main": "index.ts",
   "scripts": {
     "test": "mocha -r ts-node/register ./test/**",
     "test:watch": "mocha --require ts-node/register --watch-extensions ts,tsx '**/*.{ts,tsx}'",

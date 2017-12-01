@@ -1,14 +1,15 @@
 {
   "name": "medium-graphql",
-  "version": "0.0.1",
+  "version": "1.0.8",
   "description": "medium api using graphql",
-  "main": "boot.ts",
+  "main": "index.ts",
   "scripts": {
     "test": "mocha -r ts-node/register ./test/**",
     "test:watch": "mocha --require ts-node/register --watch-extensions ts,tsx '**/*.{ts,tsx}'",
     "start": "node ./dist/boot.js",
     "dev": "ts-node ./boot.ts",
-    "dev:watch": "nodemon --watch ./boot.ts --exec ts-node ./boot.ts"
+    "dev:watch": "nodemon --watch ./boot.ts --exec ts-node ./boot.ts",
+    "build": "tsc --p ./tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -39,7 +40,6 @@
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1",
     "sinon": "^4.1.2",
-    "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
     "typescript": "^2.6.1"

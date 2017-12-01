@@ -1,7 +1,3 @@
-export interface ServerOptions {
-    readonly port?: number 
-  }
-  
 export interface graphqlParams {
     query: string
     variables : {

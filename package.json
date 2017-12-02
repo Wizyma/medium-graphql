@@ -1,15 +1,10 @@
 {
   "name": "medium-graphql",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "medium api using graphql",
   "main": "index.ts",
   "scripts": {
-    "test": "mocha -r ts-node/register ./test/**",
-    "test:watch": "mocha --require ts-node/register --watch-extensions ts,tsx '**/*.{ts,tsx}'",
-    "start": "node ./dist/boot.js",
-    "dev": "ts-node ./boot.ts",
-    "dev:watch": "nodemon --watch ./boot.ts --exec ts-node ./boot.ts",
-    "build": "tsc --p ./tsconfig.json"
+    "build": "tsc --p ./tsconfig.json && cpy package.json dist"
   },
   "repository": {
     "type": "git",
@@ -27,19 +22,10 @@
   },
   "homepage": "https://github.com/jsparanoguy/medium-graphql#readme",
   "devDependencies": {
-    "@types/chai": "^4.0.5",
-    "@types/cors": "^2.8.3",
-    "@types/mocha": "^2.2.44",
-    "@types/morgan": "^1.7.35",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "chai": "^4.1.2",
-    "chai-http": "^3.0.0",
     "cors": "^2.8.4",
-    "mocha": "^4.0.1",
-    "morgan": "^1.9.0",
-    "nodemon": "^1.12.1",
-    "sinon": "^4.1.2",
+    "cpy-cli": "^1.0.1",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
     "typescript": "^2.6.1"
@@ -57,8 +43,6 @@
     "graphql": "^0.11.7",
     "graphql-tools": "^2.8.0",
     "isomorphic-fetch": "^2.2.1",
-    "micro": "^9.0.2",
-    "ramda": "^0.25.0",
-    "supertest": "^3.0.0"
+    "ramda": "^0.25.0"
   }
 }

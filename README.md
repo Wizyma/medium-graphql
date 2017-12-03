@@ -1,4 +1,7 @@
 # medium-graphql
+
+[![Build Status](https://travis-ci.org/jsparanoguy/medium-graphql.svg?branch=master)](https://travis-ci.org/jsparanoguy/medium-graphql)
+
 medium api using graphql
 
 use ``npm install medium-graphql`` to install the package

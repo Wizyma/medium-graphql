@@ -1,4 +1,4 @@
-[
+module.exports = [
 	{
 		"id": "e70f7cbbb5f6",
 		"versionId": "59d5a2ee06eb",

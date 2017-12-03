@@ -4,8 +4,11 @@
   "description": "medium api using graphql",
   "main": "index.ts",
   "scripts": {
-    "test": "mocha --recursive --require ts-node/register ./**/*.spec.ts",
-    "build": "tsc --p ./tsconfig.json && cpy package.json dist"
+    "test": "nyc mocha ./dist/tests/*.spec.js",
+    "build": "tsc --p ./tsconfig.json && cpy package.json dist",
+    "test-compile": "tsc --p tests/tsconfig.json",
+    "pretest": "tsc --p ./tsconfig.json && cpy package.json dist",
+    "posttest": "nyc report --reporter=json && codecov -t ec1b4f9c-67df-4ae2-ae84-734eb877991b -f coverage/*.json"
   },
   "repository": {
     "type": "git",
@@ -29,15 +32,19 @@
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
+    "codecov": "^3.0.0",
     "cors": "^2.8.4",
     "cpy-cli": "^1.0.1",
+    "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
     "morgan": "^1.9.0",
+    "nyc": "^11.3.0",
     "supertest": "^3.0.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.1",
+    "typings": "^2.1.1"
   },
   "dependencies": {
     "@types/body-parser": "^1.16.8",

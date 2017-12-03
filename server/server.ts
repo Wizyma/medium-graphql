@@ -3,7 +3,7 @@ const schema  = require('../graphql/schema')
 import { getPosts } from '../medium/api'
 import { graphqlParams } from '../typeDefs'
 
-const mediumServer = graphqlHTTP(
+const mediumServer: any = graphqlHTTP(
   async (request: any, response: any, graphQLParams: graphqlParams) => ({ 
     schema,
     rootValue: await getPosts(graphQLParams),

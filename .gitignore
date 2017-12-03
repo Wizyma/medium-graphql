@@ -135,6 +135,7 @@ $RECYCLE.BIN/
 
 dist/
 package-lock.json
+tests/testscompil
 
 
 # End of https://www.gitignore.io/api/osx,node,linux,windows,visualstudiocode

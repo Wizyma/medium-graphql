@@ -8,7 +8,7 @@
     "build": "tsc --p ./tsconfig.json && cpy package.json dist",
     "test-compile": "tsc --p tests/tsconfig.json",
     "pretest": "tsc --p ./tsconfig.json && cpy package.json dist",
-    "posttest": "nyc report --reporter=json && codecov -t ec1b4f9c-67df-4ae2-ae84-734eb877991b -f coverage/*.json"
+    "posttest": "nyc report --reporter=json && codecov -f coverage/*.json"
   },
   "repository": {
     "type": "git",

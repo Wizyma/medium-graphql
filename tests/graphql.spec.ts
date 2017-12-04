@@ -25,7 +25,7 @@ describe('mediumServer', () => {
     },         5000)
   })
 
-  it('should return 200 on the graphql path', () => {
+  it('should return the data requested to the grapgql server', () => {
     return request(app).post('/graphql')
     .send({
       query: `query Post($tag: String!, $limit: Int){
@@ -46,11 +46,15 @@ describe('mediumServer', () => {
       }`,
       variables: {
         tag: 'react',
-        limit: 1,
+        limit: 10,
       },
     })
     .then((res: any) => {
-      res.status.should.equal(200)
+      const json = JSON.parse(res.text)
+      const p = process.cwd()
+      const fullp = path.join(p, '/__mock_data__/mock.json')
+      const mock = require(fullp)
+      json.should.eql(mock)
     })
   })
 })

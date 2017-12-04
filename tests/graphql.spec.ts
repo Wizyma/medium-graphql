@@ -14,24 +14,26 @@ import { getPosts } from '../medium/api'
 const request = require('supertest')
 
 describe('mediumServer', () => {
-  // const app = express()
-  // app.use('/graphql', mediumServer)
-  // app.use(bodyParser.json())
-  //  app.listen(1448)
-  // server does not stop after the tests...
+  const app = express()
+  app.use('/graphql', mediumServer)
+  app.use(bodyParser.json())
+  app.listen(1448)
 
-  after((done: MochaDone) => {
-    done()
+  after(() => {
+    setTimeout(() => {
+      process.exit()
+    },         5000)
   })
 
-  xit('should return 200 on the graphql path', () => {
-    return request().post('/graphql')
+  it('should return 200 on the graphql path', () => {
+    return request(app).post('/graphql')
     .send({
       query: `query Post($tag: String!, $limit: Int){
         allPosts(tag: $tag, limit: $limit){
           id,
           url,
           title,
+          firstPublishedAt,
           content{
             subtitle
           },
@@ -44,38 +46,11 @@ describe('mediumServer', () => {
       }`,
       variables: {
         tag: 'react',
-        limit: 10,
+        limit: 1,
       },
     })
     .then((res: any) => {
       res.status.should.equal(200)
-    })
-  })
-
-  it('should retuns the posts', () => {
-    getPosts({
-      query: `query Post($tag: String!, $limit: Int){
-        allPosts(tag: $tag, limit: $limit){
-          id,
-          url,
-          title,
-          content{
-            subtitle
-          },
-          virtuals{
-            previewImage{
-              imageId
-            }
-          }
-        }
-      }`,
-      variables: {
-        tag: 'react',
-        limit: 10,
-      },
-    })
-    .then((res: any) => {
-      res.length.should.equal(9)
     })
   })
 })

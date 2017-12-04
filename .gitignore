@@ -134,7 +134,6 @@ $RECYCLE.BIN/
 *.lnk
 
 dist/
-package-lock.json
 tests/testscompil
 
 

@@ -5,8 +5,6 @@ import 'mocha'
 import mediumServer from '../index'
 import * as bodyParser from 'body-parser'
 import 'isomorphic-fetch'
-import * as path from 'path'
-import fs from 'fs'
 
 // create a server for testing purpose
 import * as express from 'express'
@@ -51,10 +49,35 @@ describe('mediumServer', () => {
     })
     .then((res: any) => {
       const json = JSON.parse(res.text)
-      const p = process.cwd()
-      const fullp = path.join(p, '/__mock_data__/mock.json')
-      const mock = require(fullp)
-      json.should.eql(mock)
+      expect(json.data).to.have.all.deep.keys('allPosts')
+    })
+  })
+
+  it('should return a formated array of object', () => {
+    getPosts({
+      query: `query Post($tag: String!, $limit: Int){
+        allPosts(tag: $tag, limit: $limit){
+          id,
+          url,
+          title,
+          firstPublishedAt,
+          content{
+            subtitle
+          },
+          virtuals{
+            previewImage{
+              imageId
+            }
+          }
+        }
+      }`,
+      variables: {
+        tag: 'react',
+        limit: 10,
+      },
+    })
+    .then((data: any) => {
+      expect(data).to.be.an('array')
     })
   })
 })

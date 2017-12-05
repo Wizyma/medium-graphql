@@ -15,7 +15,7 @@ express example :
 ```javascript
 const express = require('express')
 const app = express()
-const mediumServer = require('medium-graphql')
+const mediumServer = require('medium-graphql').default
 
 app.use('/graphql', mediumServer) // you can use whatever path you want for the middleware
 

@@ -1,5 +1,7 @@
 # medium-graphql
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jsparanoguy/medium-graphql.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/jsparanoguy/medium-graphql.svg?branch=master)](https://travis-ci.org/jsparanoguy/medium-graphql)
 [![codecov](https://codecov.io/gh/jsparanoguy/medium-graphql/branch/master/graph/badge.svg)](https://codecov.io/gh/jsparanoguy/medium-graphql)
 [![Known Vulnerabilities](https://snyk.io/test/github/jsparanoguy/medium-graphql/badge.svg)](https://snyk.io/test/github/jsparanoguy/medium-graphql)

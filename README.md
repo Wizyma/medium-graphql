@@ -22,6 +22,6 @@ app.use('/graphql', mediumServer) // you can use whatever path you want for the 
 
 app.listen(3000)
 ```
-For now only medium posts are available, i plane to implement the user search too
+For now only medium posts are available, i plan to implement the user search too
 
 made with :heartbeat:

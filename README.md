@@ -5,7 +5,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/jsparanoguy/medium-graphql/badge.svg)](https://snyk.io/test/github/jsparanoguy/medium-graphql)
 [![npm version](https://badge.fury.io/js/medium-graphql.svg)](https://badge.fury.io/js/medium-graphql)
 [![Greenkeeper badge](https://badges.greenkeeper.io/jsparanoguy/medium-graphql.svg)](https://greenkeeper.io/)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7fce4761ef06dd515ff5/maintainability)](https://codeclimate.com/github/jsparanoguy/medium-graphql/maintainability)
 
 medium api using graphql
 

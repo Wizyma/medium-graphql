@@ -56,7 +56,7 @@
     "es6-promise": "^4.1.1",
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
-    "graphql": "^0.11.7",
+    "graphql": "^0.12.0",
     "graphql-tools": "^2.8.0",
     "isomorphic-fetch": "^2.2.1",
     "ramda": "^0.25.0"

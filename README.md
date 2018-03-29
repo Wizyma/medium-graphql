@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/Wizyma/medium-graphql/branch/master/graph/badge.svg)](https://codecov.io/gh/jsparanoguy/medium-graphql)
 [![Known Vulnerabilities](https://snyk.io/test/github/jsparanoguy/medium-graphql/badge.svg)](https://snyk.io/test/github/jsparanoguy/medium-graphql)
 [![npm version](https://badge.fury.io/js/medium-graphql.svg)](https://badge.fury.io/js/medium-graphql)
-[![Greenkeeper badge](https://badges.greenkeeper.io/jsparanoguy/medium-graphql.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Wizyma/medium-graphql.svg)](https://greenkeeper.io/)
 
 medium api using graphql
 
